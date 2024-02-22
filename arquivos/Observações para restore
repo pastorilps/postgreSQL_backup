@@ -1,0 +1,29 @@
+para realizar o restore do db arval_playground_2 necessário criar a Role azure_superuser e onlyread
+
+-- DROP ROLE azure_superuser;
+
+CREATE ROLE azure_superuser WITH 
+	SUPERUSER
+	CREATEDB
+	CREATEROLE
+	INHERIT
+	LOGIN
+	REPLICATION
+	BYPASSRLS
+	CONNECTION LIMIT -1;
+ALTER ROLE azure_superuser SET search_path=pg_catalog;
+
+-- DROP ROLE onlyread;
+
+CREATE ROLE onlyread WITH 
+	NOSUPERUSER
+	NOCREATEDB
+	NOCREATEROLE
+	INHERIT
+	LOGIN
+	NOREPLICATION
+	NOBYPASSRLS
+	CONNECTION LIMIT -1;
+
+Para as bases de Produção é necessário instalar a extensão Hypopg é necessário apenas instalar o arquivo contido nesta pasta (compatível com postgre 16).
+

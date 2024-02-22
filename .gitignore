@@ -1,0 +1,5 @@
+# Ignorar arquivos específicos
+.env
+
+# Ignorar diretório específico
+.vscode/
